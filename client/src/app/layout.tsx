@@ -40,6 +40,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
+          storageKey="portfolio-theme"
         >
           <div className="flex flex-col min-h-screen">
             <Header />

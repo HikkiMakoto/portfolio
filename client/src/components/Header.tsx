@@ -98,25 +98,22 @@ export default function Header() {
                     aria-label="Toggle Dark Mode"
                     type="button"
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors"
-                    onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                    onClick={() => {
+                      console.log("Current theme:", resolvedTheme);
+                      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                    }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.div
-                        key={resolvedTheme}
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 20, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                    {mounted && (
+                      <div className="relative">
                         {resolvedTheme === "dark" ? (
                           <SunIcon className="h-5 w-5" />
                         ) : (
                           <MoonIcon className="h-5 w-5" />
                         )}
-                      </motion.div>
-                    </AnimatePresence>
+                      </div>
+                    )}
                   </motion.button>
                 </div>
               </div>
@@ -125,25 +122,22 @@ export default function Header() {
                   aria-label="Toggle Dark Mode"
                   type="button"
                   className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 mr-2"
-                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                  onClick={() => {
+                    console.log("Mobile theme toggle:", resolvedTheme);
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                  }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={resolvedTheme}
-                      initial={{ rotate: -30, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 30, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                  {mounted && (
+                    <div className="relative">
                       {resolvedTheme === "dark" ? (
                         <SunIcon className="h-5 w-5" />
                       ) : (
                         <MoonIcon className="h-5 w-5" />
                       )}
-                    </motion.div>
-                  </AnimatePresence>
+                    </div>
+                  )}
                 </motion.button>
                 
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">

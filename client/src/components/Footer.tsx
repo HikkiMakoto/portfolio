@@ -59,15 +59,9 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
-      {/* Animated stripe background */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute h-1 w-full bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 animate-slide"></div>
-        <div className="absolute h-1 w-full bg-gradient-to-r from-blue-300 via-teal-300 to-green-400 animate-slide-delay-1 top-6"></div>
-        <div className="absolute h-1 w-full bg-gradient-to-r from-yellow-300 via-orange-300 to-red-400 animate-slide-delay-2 top-12"></div>
-        <div className="absolute h-1 w-full bg-gradient-to-r from-indigo-300 via-violet-300 to-purple-400 animate-slide-delay-3 top-18"></div>
-        <div className="absolute h-1 w-full bg-gradient-to-r from-green-300 via-teal-300 to-cyan-400 animate-slide-delay-4 top-24"></div>
-      </div>
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 relative">
+      {/* Simple gradient border at top instead of animated stripes */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary-300 via-purple-300 to-indigo-400"></div>
       
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
